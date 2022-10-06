@@ -131,6 +131,18 @@
             }
             c.push(b[0][i]/a[i][i]);
           }
+          var converg=0;
+          for(var i=0; i<filas.value; i++) {
+            var s=0;
+            for(var j=0; j<filas.value; j++) {
+              if(i!=j){
+                s=Math.abs(s)+Math.abs(m[i][j]);
+              }
+            }
+            if(s>converg){
+              converg=s;
+            }
+          }
           console.log(m);
           nro_ite = 0
           error = [];
@@ -168,7 +180,7 @@
             document.getElementById("resolucionsistema").innerHTML+="<br>";
             nro_ite = nro_ite +1  ;
           }
-
+          document.getElementById("resolucionsistema").innerHTML+="<br>El factor de convergencia Alpha = "+converg;
         }
         function seidel(matrixa, matrixb, tol) {
           a = matrixa.slice();
@@ -182,6 +194,19 @@
               }
             }
             c.push(b[0][i]/a[i][i]);
+          }
+          var converg=0;
+          for(var i=0; i<filas.value; i++) {
+            var s=0;
+            for(var j=0; j<filas.value; j++) {
+              if(i!=j){
+                s=Math.abs(s)+Math.abs(m[i][j]);
+              }
+            }
+            if(s>converg){
+              converg=s;
+            }
+            console.log(converg);
           }
           console.log(m);
           nro_ite = 0
@@ -218,7 +243,7 @@
             document.getElementById("resolucionsistema").innerHTML+="<br>";
             nro_ite = nro_ite +1  ;
           }
-
+          document.getElementById("resolucionsistema").innerHTML+="<br>El factor de convergencia Alpha = "+converg;
         }
         const zeros = (input) => {
           let result = [];
